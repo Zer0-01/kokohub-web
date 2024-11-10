@@ -1,0 +1,14 @@
+.image-container {
+    position: relative;
+}
+
+.overlay-text {
+    position: absolute;
+    top: 90%;
+    left: 25%;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+}

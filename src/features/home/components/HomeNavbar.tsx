@@ -5,7 +5,7 @@ const HomeNavbar = () => {
         <>
             <Navbar className="bg-body-tertiary">
                 <Container>
-                    <Navbar.Brand>Brand text</Navbar.Brand>
+                    <Navbar.Brand>Barberas</Navbar.Brand>
                 </Container>
             </Navbar>
         </>
