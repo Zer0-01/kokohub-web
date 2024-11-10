@@ -5,8 +5,13 @@ import Card from "react-bootstrap/Card";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import LoginNavbar from "./components/LoginNavbar";
+import { useState } from "react";
+import { Navigate } from "react-router-dom";
 
 const Login = () => {
+  const [toHome, setToHome] = useState(false);
+  if (toHome) { return <Navigate to={"/home"} /> }
+
   return (
     <>
       <LoginNavbar />
@@ -29,7 +34,11 @@ const Login = () => {
                     <Form.Check type="checkbox" label="Remember me" />
                   </Form.Group>
 
-                  <Button variant="primary" type="submit" className="w-100 btn-lg">
+                  <Button
+                    variant="primary"
+                    type="submit"
+                    className="w-100 btn-lg"
+                    onClick={() => setToHome(true)}>
                     Login
                   </Button>
                   <hr className="my-4" />
