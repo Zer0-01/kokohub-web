@@ -1,5 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import Login from "./assets/components/login/Login";
+import Login from "./features/login/Login";
 
 function App() {
 
