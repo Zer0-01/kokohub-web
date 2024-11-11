@@ -5,8 +5,15 @@ import barbertools from '../../assets/barbertools.jpg';
 import barberpeople from '../../assets/barberpeople.jpg';
 import barbercutty from '../../assets/barbercutytpe.jpg';
 import './Home.css';
+import { useState } from "react";
+import { Navigate } from "react-router-dom";
 
 const Home = () => {
+    const [toBooking, setToBooking] = useState(false);
+    if (toBooking) {
+        return <Navigate to={"/booking"} />
+    }
+
     return (
         <>
             <HomeNavbar />
@@ -30,7 +37,7 @@ const Home = () => {
                     </Col>
                     <Col className="p-1" md={4}>
                         <div className="h-100 image-container">
-                            <Image className="h-100" src={barbercutty} fluid rounded={true} />
+                            <Image className="h-100" src={barbercutty} fluid rounded={true} onClick={() => setToBooking(true)} />
                             <h4 className="overlay-text">Book Now</h4>
                         </div>
                     </Col>
