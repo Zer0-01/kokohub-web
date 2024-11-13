@@ -1,11 +1,12 @@
-import { Button, Container, Form } from "react-bootstrap";
+import { Button, Container, Form, Spinner } from "react-bootstrap";
 import { useEffect, useState } from "react";
-import { User } from "../../models/user";
+import { User } from "../../models/User";
 
 
 const Booking = () => {
     const [users, setUsers] = useState<User[]>([]);
     const [error, setError] = useState<string | null>(null);
+    const [loading, setLoading] = useState<boolean>(true);
 
     const fetchUser = async () => {
         const response = await fetch('http://localhost:5167/Users');
@@ -25,9 +26,21 @@ const Booking = () => {
                 } else {
                     setError('An unknown error occurred');
                 }
+            } finally {
+                setLoading(false);
             }
         }; fetchData();
     }, []);
+
+    if (loading) {
+        return (
+            <div className="text-center">
+                <Spinner animation="border" role="status">
+                    <span className="visually-hidden">Loading...</span>
+                </Spinner>
+            </div>
+        );
+    }
 
     if (error) {
         return <div>Error: {error}</div>;
